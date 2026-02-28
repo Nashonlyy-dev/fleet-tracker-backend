@@ -16,7 +16,7 @@ const app = express();
 
 // 1. Security & Request Parsing Middlewares
 app.use(helmet()); // Protects headers
-app.use(cors());   // Allows cross-origin requests
+app.use(cors(corsOptions));   // Allows cross-origin requests
 app.use(express.json()); // Parses JSON bodies
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,5 +38,6 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Internal Server Error' });
 });
+
 
 export default app;
