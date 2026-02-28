@@ -16,7 +16,7 @@ const server = http.createServer(app);
 // 2. Initialize Socket.io
 export const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Your Vite frontend URL
+    origin: "fleet-tracker-backend-production.up.railway.app", // Your Vite frontend URL
     methods: ["GET", "POST"],
   },
 });
@@ -111,5 +111,6 @@ const startServer = async () => {
     process.exit(1); 
   }
 };
+
 
 startServer();
