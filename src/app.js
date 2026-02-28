@@ -16,7 +16,8 @@ const app = express();
 
 // 1. Security & Request Parsing Middlewares
 app.use(helmet()); // Protects headers
-app.use(cors(corsOptions));   // Allows cross-origin requests
+app.use(cors(origin: ['https://fleet-tracker-frontend.vercel.app', 'http://localhost:5173'], 
+    credentials: true));   // Allows cross-origin requests
 app.use(express.json()); // Parses JSON bodies
 app.use(express.urlencoded({ extended: true }));
 
@@ -41,3 +42,4 @@ app.use((err, req, res, next) => {
 
 
 export default app;
+
