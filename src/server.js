@@ -17,7 +17,8 @@ const server = http.createServer(app);
 export const io = new Server(server, {
   cors: {
    origin: ['https://fleet-tracker-frontend.vercel.app', 'http://localhost:5173'], 
-  optionsSuccessStatus: 200,
+  methods: ["GET", "POST"],
+    credentials: true
   },
 });
 
@@ -114,4 +115,5 @@ const startServer = async () => {
 
 
 startServer();
+
 
